@@ -1,0 +1,256 @@
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  } @else {
+    @warn "Undefined color `#{$key}` in $colors map. Falling back to default color.";
+    @return $default-fallback-color;
+  }
+}
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  line-height: $line-height-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  color: color(text);
+  background-color: color(background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  @include flex-center(column, flex-start);
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  color: color(text);
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: color(primary);
+  text-decoration: none;
+  @include transition(color);
+  &:hover,
+  &:focus {
+    color: color(primary-light);
+  }
+}
+
+// Layout Utilities
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  @include respond-to(md) {
+    max-width: 720px;
+  }
+  @include respond-to(lg) {
+    max-width: 960px;
+  }
+  @include respond-to(xl) {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+  > * {
+    padding: 0.5rem;
+  }
+}
+
+.col {
+  flex: 1 1 0;
+}
+
+// Utilities
+.u-text-center { text-align: center; }
+.u-mb-1 { margin-bottom: 1rem; }
+.u-mt-1 { margin-top: 1rem; }
+.u-p-1 { padding: 1rem; }
+.u-hidden { display: none; }
+
+// Button Component
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: color(text-light);
+  background-color: color(primary);
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  text-align: center;
+  @include transition(background-color, transform);
+
+  &:hover,
+  &:focus {
+    background-color: color(primary-light);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid color(primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: color(muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &--secondary {
+    background-color: color(secondary);
+    &:hover,
+    &:focus {
+      background-color: lighten(color(secondary), 10%);
+    }
+    &:focus-visible {
+      outline: 2px solid lighten(color(secondary), 10%);
+      outline-offset: 2px;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: color(primary);
+    border: 1px solid color(primary);
+    &:hover,
+    &:focus {
+      background-color: color(primary);
+      color: color(text-light);
+    }
+    &:focus-visible {
+      outline: 2px solid color(primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Form Elements
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid color(border);
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-family: $font-sans;
+  @include transition(border-color, box-shadow);
+  &:focus {
+    border-color: color(primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(color(primary), 0.15);
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+// Card Component
+.card {
+  background-color: color(surface);
+  border: 1px solid color(border);
+  border-radius: $border-radius;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(color(text), 0.05);
+  @include transition(box-shadow);
+  &:hover {
+    box-shadow: 0 4px 8px rgba(color(text), 0.1);
+  }
+  &__header {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  &__body {
+    margin-bottom: 0.75rem;
+  }
+  &__footer {
+    text-align: right;
+  }
+}
+
+// Navbar
+.navbar {
+  width: 100%;
+  background-color: color(surface);
+  border-bottom: 1px solid color(border);
+  @include flex-center(row, space-between, center);
+  padding: 0.5rem 1rem;
+  .navbar__brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: color(primary);
+  }
+  .navbar__links {
+    @include flex-center(row, flex-start, center);
+    a {
+      margin-left: 1rem;
+      color: color(text);
+      &:hover {
+        color: color(primary);
+      }
+    }
+  }
+}
+
+// Themes
+html.theme-dark body,
+body.theme-dark {
+  background-color: color(text);
+  color: color(text-light);
+}
+
+html.theme-dark .card,
+body.theme-dark .card {
+  background-color: darken(color(surface), 5%);
+  border-color: darken(color(border), 10%);
+}
+
+html.theme-dark .navbar,
+body.theme-dark .navbar {
+  background-color: darken(color(surface), 5%);
+  border-bottom-color: darken(color(border), 10%);
+  .navbar__brand,
+  .navbar__links a {
+    color: color(text-light);
+    &:hover {
+      color: color(primary-light);
+    }
+  }
+}
