@@ -1,0 +1,72 @@
+lockfileVersion: 6.17
+importers:
+  .:
+    specifiers:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      vite: ^4.3.9
+      typescript: ^4.9.5
+      tailwindcss: ^3.3.2
+      autoprefixer: ^10.4.14
+      postcss: ^8.4.21
+      "@netlify/functions": ^3.8.0
+      neon-cli: ^0.9.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0
+      vite: 4.3.9
+      typescript: 4.9.5
+      tailwindcss: 3.3.2
+      autoprefixer: 10.4.14
+      postcss: 8.4.21
+      "@netlify/functions": 3.8.0
+      neon-cli: 0.9.0
+
+packages:
+  /react/18.2.0:
+    resolution:
+      integrity: sha512-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+    engines:
+      node: '>=12'
+  /react-dom/18.2.0:
+    resolution:
+      integrity: sha512-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=
+    engines:
+      node: '>=12'
+  /vite/4.3.9:
+    resolution:
+      integrity: sha512-CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC=
+    engines:
+      node: '>=14'
+  /typescript/4.9.5:
+    resolution:
+      integrity: sha512-DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD=
+    engines:
+      node: '>=12'
+  /tailwindcss/3.3.2:
+    resolution:
+      integrity: sha512-EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE=
+    engines:
+      node: '>=14'
+  /autoprefixer/10.4.14:
+    resolution:
+      integrity: sha512-FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF=
+    dependencies:
+      postcss: 8.4.21
+  /postcss/8.4.21:
+    resolution:
+      integrity: sha512-GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG=
+  /@netlify/functions/3.8.0:
+    resolution:
+      integrity: sha512-HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH=
+    engines:
+      node: '>=14'
+  /neon-cli/0.9.0:
+    resolution:
+      integrity: sha512-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=
+    engines:
+      node: '>=16'
+
+shared-workspace-lockfile: true
+lockfileDir: .
+lastModified: 2024-06-01T00:00:00.000Z
